@@ -24,14 +24,20 @@ class LivePage extends StatefulWidget {
 
 class LivePageState extends State<LivePage> {
   final liveController = ZegoUIKitPrebuiltLiveStreamingController();
+  final audience = ZegoUIKitPrebuiltLiveStreamingAudienceEvents();
+  final host = ZegoUIKitPrebuiltLiveStreamingEvents(
+    hostEvents: ZegoUIKitPrebuiltLiveStreamingHostEvents(),
+  );
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: ZegoUIKitPrebuiltLiveStreaming(
-        appID: yourAppID /*input your AppID*/,
-        appSign: yourAppSign /*input your AppSign*/,
+        appID: 1484647939 /*input your AppID*/,
+        appSign:
+            'e9b6464b12323c6f835731fbef3f398dbcdfe1ae9261f6be373f7aa7696ab105' /*input your AppSign*/,
         userID: localUserID,
+        events: host,
         userName: 'user_$localUserID',
         liveID: widget.liveID,
         controller: liveController,
